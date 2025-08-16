@@ -31,3 +31,74 @@ int main()
     printf("the maximum element is %d",max);
     return 0;
 }
+
+ 3 .find the second greatest element in the array
+#include <stdio.h>
+#include <limits.h>
+int main()
+{
+    int max = INT_MIN;
+    int secondMax =INT_MIN;
+    int n = 7;
+    int arr[] = { 78,98,5,6,746,894,455};
+    for(int i = 0; i<7; i++)
+    {
+        if (arr[i] > max)
+        max = arr[i];
+    }
+    printf("the max element is %d",max);
+    for(int j = 0; j<n; j++)
+    {
+        if(arr[j]!= max && arr[j]>secondMax)
+        {
+            secondMax=arr[j];
+        }
+    }
+    printf("\nthe second max element is: %d",secondMax);
+  return 0;
+    
+}
+
+
+/*Question 4
+Ek array diya hai, tumhe:
+find
+Maximum element
+
+Second maximum element
+
+Unke index positions
+
+ek hi loop me find karne hain.*/
+/*find the first and secondmax element in the array and their indexes
+#include <stdio.h>
+#include <limits.h>
+int main()
+{
+    int max = INT_MIN;
+    int secondMax = INT_MIN;
+    int maxIndx = -1, secondmaxIndx = 1;
+    int arr[] = {123,45,5,3445,768,564,355,978};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    for(int i=0;i<n;i++)
+    {
+       if(arr[i]>max)
+       {
+           secondMax=max;
+           secondmaxIndx=maxIndx;
+           max = arr[i];
+           maxIndx=i;
+           
+       }
+       else if (arr[i]>secondMax && arr[i]!=max)
+       {
+           secondMax = arr[i];
+           secondmaxIndx = i;
+       }
+    }
+    printf("the MAx element is %d and its index is %d",max,maxIndx);
+    printf("\nthe SECONDMAX element is %d and its index is %d",secondMax,secondmaxIndx);
+
+
+    return 0;
+}
