@@ -102,3 +102,59 @@ int main()
 
     return 0;
 }
+
+
+/*Q7: Ek C program likho jo ek array ke pehle r elements ko reverse kare, jabki baaki array as it is rahe.
+
+User se array ka size, elements, aur r ka value input lena hai.
+
+Output me updated array print karna hai.
+
+Example:
+
+Input:  
+Size = 7  
+Array = 1 2 3 4 5 6 7  
+r = 4
+
+Output:  
+4 3 2 1 5 6 7
+
+#include<stdio.h>
+void reverseArray(int arr[],int n,int r)
+{
+    int start = 0 ;
+    int end = r-1;
+    int temp;
+    while(start<end)
+    {
+        temp=arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+    }
+}
+int main()
+{
+    int arr[100];
+    int n;
+    int r;
+    printf("enter the size of the array:");
+    scanf("%d",&n);
+    printf("enter the %d elements of the array:\n",n);
+    for(int i=0; i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("the index upto which you want to reverse the array:");
+    scanf("%d",&r);
+    reverseArray(arr,n,r);
+    printf("\n the reversed array is:");
+       for(int i=0; i<n;i++)
+    {
+        printf("%d",arr[i]);
+    }
+    return 0;
+}*/
+
