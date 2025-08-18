@@ -1,107 +1,134 @@
 ARRAYS PROBLEMS BASICS TO ADVANCE IN C
-1 .find sum of all elements of array
-
+Q1 .print the sum of all the elements of the array
 #include <stdio.h>
 int main()
 {
     int n = 10;
-    int arr[10] = {1,2,3,4,5,6,7,8,9,10};
-    int sum = 0;
-    for(int i = 0; i<n; i++)
-    {
-      sum=sum+arr[i];//sum+=arr[i];
-      
-    }
-    printf("the total sum of the array is %d",sum);
-    return 0;
-}
+    int arr[10] = {1,2,3,4,5,6,7,8,9,10};           ----------------- Learning -----------------
+    int sum = 0;                                    | 1. Loop traversal se array ke har element |
+    for(int i = 0; i<n; i++)                        |    ko access karna seekha.                |
+    {                                               |                                            |
+        sum = sum + arr[i]; // sum += arr[i];       | 2. Ek variable (sum) bana ke repeatedly   |
+    }                                               |    update karne ka logic samjha.          |
+    printf("The total sum of the array is %d", sum);|                                           |
+    return 0;                                       | 3. sum += arr[i]; shorthand ka matlab     |
+}                                                   |    clear hua.                             |
+                                                    |                                            |
+                                                    | 4. Array ke elements ka total nikalne ke  |
+                                                    |     liye basic approach samjha.            |
+                                                     --------------------------------------------
+
 
 2 find the max element in the array
 
 #include <stdio.h>
 int main()
-{   int n =7;
-    int arr[7] = {5,7,3,4,5,8,88};
-    int max = arr[1];
-    for(int i = 0; i<n; i++)
-    {
-      if( arr[i] > max)
-       max = arr[i];
-    }
-    printf("the maximum element is %d",max);
-    return 0;
-}
-
- 3 .find the second greatest element in the array
-#include <stdio.h>
-#include <limits.h>
-int main()
-{
-    int max = INT_MIN;
-    int secondMax =INT_MIN;
+{   
     int n = 7;
-    int arr[] = { 78,98,5,6,746,894,455};
-    for(int i = 0; i<7; i++)
-    {
-        if (arr[i] > max)
-        max = arr[i];
-    }
-    printf("the max element is %d",max);
-    for(int j = 0; j<n; j++)
-    {
-        if(arr[j]!= max && arr[j]>secondMax)
-        {
-            secondMax=arr[j];
-        }
-    }
-    printf("\nthe second max element is: %d",secondMax);
-  return 0;
-    
-}
+    int arr[7] = {5,7,3,4,5,8,88};                 ----------------- 📘 Learning -----------------
+    int max = arr[0];                              | 🔢 1. Seekha kaise array me **maximum**   |
+    for(int i = 0; i<n; i++)                       |       element dhoondte hain.             |
+    {                                              |                                           |
+        if( arr[i] > max)                          | 🏁 2. max ko hamesha **arr[0]** se        |
+            max = arr[i];                          |       initialize karna best practice hai.|
+    }                                              |                                           |
+    printf("the maximum element is %d", max);      | 🔄 3. Har element se compare karke        |
+    return 0;                                      |       **bada value update** karna seekha.|
+}                                                  |                                           |
+                                                   | ✅ 4. if-condition ka use aur logic clear |
+                                                   |       hua for comparison & update.       |
+                                                   ---------------------------------------------
 
 
-/*Question 4
-Ek array diya hai, tumhe:
-find
-Maximum element
+3 .find the second greatest element in the array
 
-Second maximum element
-
-Unke index positions
-
-ek hi loop me find karne hain.*/
-/*find the first and secondmax element in the array and their indexes
 #include <stdio.h>
 #include <limits.h>
 int main()
 {
     int max = INT_MIN;
     int secondMax = INT_MIN;
-    int maxIndx = -1, secondmaxIndx = 1;
+    int n = 7;
+    int arr[] = {78, 98, 5, 6, 746, 894, 455};      ----------------- 📘 Learning -----------------
+                                                    | 🔝 1. **INT_MIN** use karna sikha for     |
+    for(int i = 0; i<n; i++)                        |       safe initialization (sabse chhoti  |
+    {                                               |       possible value).                   |
+        if (arr[i] > max)                           |                                           |
+            max = arr[i];                           | 🥇 2. Pehle loop se **maximum element**   |
+    }                                               |       nikalna clear hua.                 |
+    printf("the max element is %d", max);           |                                           |
+                                                    | 🥈 3. Second loop me **max ko skip karke**|
+    for(int j = 0; j<n; j++)                        |       dusra sabse bada element mila.     |
+    {                                               |                                           |
+        if(arr[j] != max && arr[j] > secondMax)     | 🔄 4. Comparison aur update ka logic     |
+        {                                           |       aur strong hua.                    |
+            secondMax = arr[j];                     |                                           |
+        }                                           | ✅ 5. Ab pata chala kaise ek hi pass me   |
+    }                                               |       max nikale aur fir second max.     |
+    printf("\nthe second max element is: %d",       ----------------------------------------------
+           secondMax);
+  return 0;
+}
+
+
+/*Question 4
+#include <stdio.h>
+#include <limits.h>
+int main()
+{
+    int max = INT_MIN;
+    int secondMax = INT_MIN;
+    int maxIndx = -1, secondmaxIndx = -1;
     int arr[] = {123,45,5,3445,768,564,355,978};
     int n = sizeof(arr)/sizeof(arr[0]);
-    for(int i=0;i<n;i++)
-    {
-       if(arr[i]>max)
-       {
-           secondMax=max;
-           secondmaxIndx=maxIndx;
-           max = arr[i];
-           maxIndx=i;
-           
-       }
-       else if (arr[i]>secondMax && arr[i]!=max)
-       {
-           secondMax = arr[i];
-           secondmaxIndx = i;
-       }
-    }
-    printf("the MAx element is %d and its index is %d",max,maxIndx);
-    printf("\nthe SECONDMAX element is %d and its index is %d",secondMax,secondmaxIndx);
 
+    for(int i=0; i<n; i++)
+    {
+        if(arr[i] > max)  // agar new max milta hai
+        {
+            secondMax = max;             // purana max ab second max ban jayega
+            secondmaxIndx = maxIndx;     // uska index bhi update
+            max = arr[i];                // new max set
+            maxIndx = i;                 // aur uska index
+        }
+        else if(arr[i] > secondMax && arr[i] != max) // agar value max se chhoti hai 
+        {
+            secondMax = arr[i];          // update second max
+            secondmaxIndx = i;           // aur uska index
+        }
+    }
+
+    printf("The MAX element is %d and its index is %d", max, maxIndx);
+    printf("\nThe SECOND MAX element is %d and its index is %d", secondMax, secondmaxIndx);
 
     return 0;
-}
+}                                               ----------------- 📘 Learning -----------------
+                                                | 🔢 Problem: Ek hi loop me find karna hai   |
+                                                |     1. Maximum element 🥇                 |
+                                                |     2. Second Maximum element 🥈          |
+                                                |     3. Unke index positions 📍            |
+                                                |                                            |
+                                                | 💡 Logic:                                 |
+                                                | 1. max ko sabse chhoti value (INT_MIN) se |
+                                                |    initialize kiya, taaki koi bhi value   |
+                                                |    usse bada ho sake.                     |
+                                                |                                            |
+                                                | 2. Har element ke liye:                   |
+                                                |    👉 Agar wo current max se bada hai →   |
+                                                |       - Purana max second max ban gaya.   |
+                                                |       - Indexes bhi accordingly shift hue.|
+                                                |       - New element max ban gaya.         |
+                                                |                                            |
+                                                |    👉 Agar wo max se chhota hai lekin     |
+                                                |       secondMax se bada hai →             |
+                                                |       - Directly secondMax update kiya.   |
+                                                |                                            |
+                                                | 🏁 Result: Loop khatam hote hi dono        |
+                                                |    values aur unke indexes mil jaate hain.|
+                                                |                                            |
+                                                | ✅ Efficiency: O(n) time, O(1) space.     |
+                                                ----------------------------------------------
+
 
 
 Q7: Ek C program likho jo ek array ke pehle r elements ko reverse kare, jabki baaki array as it is rahe.
