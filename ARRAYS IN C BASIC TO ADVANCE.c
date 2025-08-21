@@ -130,7 +130,7 @@ int main()
                                                 ----------------------------------------------
 
 
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Q7: Ek C program likho jo ek array ke pehle r elements ko reverse kare, jabki baaki array as it is rahe.
 
 User se array ka size, elements, aur r ka value input lena hai.
@@ -187,7 +187,7 @@ int main()
 
 
 
-    
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------   
 // 8 . finding the odd and even no using a function
 #include <stdio.h>
 void SeperateevenOdd(int arr[], int n)
@@ -225,6 +225,7 @@ int main()
    return 0;
     
 }
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // 9 odd and even no without function
 #include <stdio.h>
 int main()
@@ -258,4 +259,40 @@ int main()
     return 0;
 }
 
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/* 10. SORT AN ARRAY IN DESCENDING ORDER (BUBBLE SORT) */
+#include <stdio.h>
 
+void bubbleSortDescending(int arr[], int n) {   ----------------- 📘 Learning -----------------
+    int i, j, temp;                             | 🔎 Problem:                                    |
+                                                | Array ke elements ko descending order me sort  |
+    for (i = 0; i < n - 1; i++) {               | karna hai (bada → chhota).                     |
+        for (j = 0; j < n - 1 - i; j++) {       |                                                 |
+            if (arr[j] < arr[j + 1]) {          | 💡 Sorting Technique:                           |
+                temp = arr[j];                  | Bubble Sort (adjacent elements swap).          |
+                arr[j] = arr[j + 1];            |                                                 |
+                arr[j + 1] = temp;              | ⚙️ Main Logic:                                  |
+            }                                   | Agar arr[j] < arr[j+1] ho toh dono ko swap.    |
+        }                                       |                                                 |
+    }                                           | 🌀 Working:                                     |
+}                                               | - Outer loop har pass ke baad ek element fix.  |
+                                                | - Inner loop me adjacents compare hote hain.   |
+int main() {                                    | - n-1-i: last wale already sorted, skip karo.  |
+    int arr[] = {5, 2, 9, 1, 7};                |                                                 |
+    int n = sizeof(arr) / sizeof(arr[0]);       | ✅ Why Swap Needed?                             |
+                                                | Descending me bada left me hona chahiye,       |
+    bubbleSortDescending(arr, n);               | chhota agar left me hai toh swap karna zaroori.|
+                                                |                                                 |
+    printf("Sorted Array (Descending): ");      | 📊 Example Dry Run:                             |
+    for (int i = 0; i < n; i++) {               | Input: 5 2 9 1 7                                |
+        printf("%d ", arr[i]);                  | Pass 1 → 9 5 2 7 1                             |
+    }                                           | Pass 2 → 9 7 5 2 1 (sorted ✅)                 |
+                                                |                                                 |
+    return 0;                                   | ⏱️ Time Complexity:                             |
+}                                               | Worst: O(n²), Best: O(n) (with optimization).  |
+                                                |                                                 |
+                                                | ⚠️ Common Mistake:                              |
+                                                | Agar condition `>` likh diya toh ascending ho   |
+                                                | jaayega instead of descending.                 |
+                                                ---------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
