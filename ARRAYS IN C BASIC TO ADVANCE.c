@@ -71,7 +71,7 @@ int main()
 }
 
 
-/*Question 4
+Question 4 find the secondmax element in the array
 #include <stdio.h>
 #include <limits.h>
 int main()
@@ -296,3 +296,43 @@ int main() {                                    | - n-1-i: last wale already sor
                                                 | jaayega instead of descending.                 |
                                                 ---------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+question 11 make a slot array 
+    /* 11. INITIALIZE SLOT ARRAY FOR JOB SCHEDULING */
+#include <stdio.h>
+
+int main() {                                    ----------------- 📘 Learning -----------------
+    int maxDeadline = 4;                        | 🔎 Problem:                                    |
+    int slot[10];                               | Jobs ko schedule karne ke liye time slots banane|
+                                                | hain. Har slot ek "din" ya "unit time" ko       |
+    // sab slots ko -1 se initialize            | represent karta hai.                            |
+    for (int i = 1; i <= maxDeadline; i++) {    |                                                 |
+        slot[i] = -1;                           | 💡 Concept:                                     |
+    }                                           | 1. Max deadline nikal ke utne slots banate hain.|
+                                                | 2. -1 ka matlab: slot abhi khaali hai.          |
+    printf("Slots after initialization:\n");   |                                                 |
+    for (int i = 1; i <= maxDeadline; i++) {    | ⚙️ Main Logic:                                  |
+        printf("Slot[%d] = %d\n", i, slot[i]);  | Har slot ko initially -1 set karo (empty).      |
+    }                                           | Jab koi job allocate hoga tab replace karenge.  |
+                                                |                                                 |
+    return 0;                                   | 🌀 Working:                                     |
+}                                               | - Suppose maxDeadline = 4                       |
+                                                | - Slot array banega: Slot[1..4]                 |
+                                                | - Initialization ke baad: {-1, -1, -1, -1}      |
+                                                |                                                 |
+                                                | 📊 Example Output:                              |
+                                                | Slot[1] = -1                                    |
+                                                | Slot[2] = -1                                    |
+                                                | Slot[3] = -1                                    |
+                                                | Slot[4] = -1                                    |
+                                                |                                                 |
+                                                | ✅ Why -1?                                       |
+                                                | Taaki hume clearly dikhe kaunse slots khaali    |
+                                                | hain. 0 ya koi aur value confuse kar sakti hai. |
+                                                |                                                 |
+                                                | ⚠️ Common Mistake:                              |
+                                                | - Agar slot array ka size maxDeadline se chhota |
+                                                | diya toh error ayega.                           |
+                                                | - Loop ko 0 se start karne ki zaroorat nahi hai.|
+                                                ---------------------------------------------------
