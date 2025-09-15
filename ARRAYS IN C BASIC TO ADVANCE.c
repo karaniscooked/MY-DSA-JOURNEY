@@ -336,3 +336,40 @@ int main() {                                    ----------------- 📘 Learning 
                                                 | diya toh error ayega.                           |
                                                 | - Loop ko 0 se start karne ki zaroorat nahi hai.|
                                                 ---------------------------------------------------
+
+
+
+
+
+
+
+
+
+Q 12 leetcode Two sum problem
+    
+#include <stdio.h>
+void twoSum(int arr[],int target,int n)
+{
+    for(int i=0; i<n; i++){
+        for(int j=i+1; j<n; j++){
+            if(arr[i]+arr[j]==target)
+            {
+             printf("[%d,%d]",i,j); 
+             return;
+            }
+        }
+    }
+    printf("[no such subsets exist]");
+}
+
+int main(){
+    int arr[] = { 2,7,11,15};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int target;
+    printf("Enter the target:\n");
+    scanf("%d",&target);
+    printf("the required subset is:\n");
+    twoSum(arr,target,n);
+
+    return 0;
+}
